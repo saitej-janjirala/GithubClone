@@ -41,7 +41,7 @@ abstract class BaseActivity<VM : BaseViewModel,VB:ViewBinding> : AppCompatActivi
             showMessage(it)
         })
     }
-    fun showMessage(message: String) =  Toast.makeText(applicationContext,message,Toast.LENGTH_LONG).show()
+    fun showMessage(message: String) =  Toast.makeText(applicationContext,message,Toast.LENGTH_SHORT).show()
 
 
     protected abstract fun initializeBinding(view: View)

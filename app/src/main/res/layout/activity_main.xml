@@ -45,5 +45,25 @@
         android:layout_marginTop="100dp"
         android:visibility="gone"
         tools:visibility="visible"/>
+    <RelativeLayout
+        android:id="@+id/retry_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+        <TextView
+            android:id="@+id/error"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/retry_button"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="20dp"
+            android:text="@string/something_went_wrong"/>
+        <Button
+            android:id="@+id/retry_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/retry"
+            android:layout_centerInParent="true"/>
+    </RelativeLayout>
 
 </RelativeLayout>

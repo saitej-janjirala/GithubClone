@@ -31,6 +31,7 @@ class DetailViewModel (
     fun getContributors(username:String,repoName:String){
         if(checkInternetConnectionWithMessage()) {
             isLoading.value=true
+            compositeDisposable.add(
             repository.getContributorData(username, repoName)
                 .subscribeOn(schedulerProvider)
                 .observeOn(AndroidSchedulers.mainThread())
@@ -43,6 +44,7 @@ class DetailViewModel (
                     isLoading.postValue(false)
                     messageString.postValue(it.message)
                 })
+            )
         }
         else{
             error.postValue(true)
