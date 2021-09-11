@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">GithubClone</string>
+    <string name="search_here">Search the repositories Here</string>
+    <string name="description">Description:-</string>
+    <string name="contibutors">Contibutors:-</string>
+    <string name="project_link">Project Link :-</string>
+    <string name="oops_something_went_wrong">Oops Something Went Wrong</string>
+    <string name="retry">Retry</string>
 </resources>
