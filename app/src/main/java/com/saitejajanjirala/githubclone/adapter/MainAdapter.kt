@@ -35,7 +35,7 @@ class MainAdapter(
                     userName.text="UserName:- ${item.owner?.login}"
                     repoStars.text="Stars:- ${item?.stargazers_count}"
                     repoForks.text="Forks:- ${item.forks}"
-                    repoIssues.text="Open issues:- ${item.open_issues}"
+                    repoIssues.text="Open issues:- ${item.open_issues_count}"
                 }
             }
     }

@@ -33,7 +33,7 @@ class DetailActivity : BaseActivity<DetailViewModel, ActivityDetailBinding>() {
             userName.text = "UserName:- ${item.owner?.login}"
             repoStars.text = "Stars:- ${item?.stargazers_count}"
             repoForks.text = "Forks:- ${item.forks}"
-            repoIssues.text = "Open issues:- ${item.open_issues}"
+            repoIssues.text = "Open issues:- ${item.open_issues_count}"
             description.text = "$description"
             val url = "<u>${item.html_url}</u>"
             projectLink.text = HtmlCompat.fromHtml(url, HtmlCompat.FROM_HTML_MODE_LEGACY)

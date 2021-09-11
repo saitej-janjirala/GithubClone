@@ -10,10 +10,9 @@
         android:id="@+id/search_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_margin="10dp"
         app:iconifiedByDefault="false"
+        android:background="@drawable/search_view_bg"
         app:queryHint="@string/search_here"/>
 
     <androidx.recyclerview.widget.RecyclerView

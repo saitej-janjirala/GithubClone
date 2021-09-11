@@ -23,9 +23,11 @@ class DetailViewModel (
         isLoading.value=false
         error.value=false
     }
+
     override fun onCreate() {
 
     }
+
     fun getContributors(username:String,repoName:String){
         if(checkInternetConnectionWithMessage()) {
             isLoading.value=true
@@ -36,7 +38,7 @@ class DetailViewModel (
                     error.postValue(false)
                     isLoading.postValue(false)
                     contributorList.postValue(it)
-                }, {
+                },{
                     error.postValue(true)
                     isLoading.postValue(false)
                     messageString.postValue(it.message)

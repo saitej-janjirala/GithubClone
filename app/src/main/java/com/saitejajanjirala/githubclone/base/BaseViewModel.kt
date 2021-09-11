@@ -25,7 +25,7 @@ abstract class BaseViewModel(
         if (helper.isNetworkConnected()) {
             true
         } else {
-            messageString.postValue("no internet conncection")
+            messageString.postValue("no internet connection")
             false
         }
 

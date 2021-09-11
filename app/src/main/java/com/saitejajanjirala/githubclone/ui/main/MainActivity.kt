@@ -65,7 +65,6 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
         binding.searchRecyclerview.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                 super.onScrolled(recyclerView, dx, dy)
-                Log.i("x,y","$dx,$dy");
                 if (dy > 0) { //check for scroll down
                     val visibleItemCount: Int = layoutManager.childCount
                     val totalItemCount: Int = layoutManager.itemCount

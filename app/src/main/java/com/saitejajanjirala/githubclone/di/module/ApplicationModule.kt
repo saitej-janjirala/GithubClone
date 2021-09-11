@@ -2,7 +2,10 @@ package com.saitejajanjirala.githubclone.di.module
 
 import android.app.Application
 import android.content.Context
+import androidx.room.Database
+import androidx.room.Room
 import com.saitejajanjirala.githubclone.BaseApplication
+import com.saitejajanjirala.githubclone.db.DatabaseService
 import com.saitejajanjirala.githubclone.utils.Helper
 import com.saitejajanjirala.githubclone.utils.Keys
 import com.saitejajanjirala.githubclone.di.ApplicationContext
@@ -58,4 +61,9 @@ class ApplicationModule (private val application:BaseApplication){
     @Provides
     @Singleton
     fun providesHelper(): Helper = Helper(application)
+
+    @Provides
+    @Singleton
+    fun provideDatabaseService():DatabaseService=
+        Room.databaseBuilder(application,DatabaseService::class.java,Keys.DATABASE_NAME).build()
 }
