@@ -18,7 +18,6 @@ import com.saitejajanjirala.githubclone.models.Item
 import com.saitejajanjirala.githubclone.ui.detail.DetailActivity
 import com.saitejajanjirala.githubclone.utils.Keys
 import com.saitejajanjirala.githubclone.utils.OnItemClickListener
-import com.saitejajanjirala.githubclone.utils.RxSearchObservable
 import io.reactivex.rxjava3.subjects.PublishSubject
 
 
