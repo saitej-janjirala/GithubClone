@@ -22,8 +22,16 @@ class MainViewModel(
     val listItems = MutableLiveData<MutableList<Item>>()
     val searchNetworkCall = MutableLiveData<Boolean>()
     val paginatedNetworkCall = MutableLiveData<Boolean>()
+    val fromDb=MutableLiveData<Boolean>()
     var page = 1
     var query = ""
+
+    init {
+        searchNetworkCall.value=false
+        paginatedNetworkCall.value=false
+        fromDb.value=false
+    }
+
     override fun onCreate() {
 
     }
@@ -65,9 +73,11 @@ class MainViewModel(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(schedulerProvider)
                 .subscribe({
+                    fromDb.postValue(false)
                     listItems.postValue(items as MutableList<Item>?)
                     searchNetworkCall.postValue(false)
                 }, {
+                    fromDb.postValue(false)
                     Log.i("clearandinserterror", "${it.message}")
                     listItems.postValue(items as MutableList<Item>?)
                     searchNetworkCall.postValue(false)
@@ -89,11 +99,13 @@ class MainViewModel(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(schedulerProvider)
                 .subscribe({
+                    fromDb.postValue(false)
                     paginatedNetworkCall.postValue(false)
                     listItems.apply {
                         items?.let { it1 -> value?.addAll(it1) }
                     }
                 }, {
+                    fromDb.postValue(false)
                     Log.i("insertafter10error", "${it.message}")
                     paginatedNetworkCall.postValue(false)
                     listItems.apply {
@@ -111,9 +123,11 @@ class MainViewModel(
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(schedulerProvider)
                 .subscribe({
+                    fromDb.postValue(true)
                     listItems.postValue(it as MutableList<Item>?)
                     searchNetworkCall.postValue(false)
                 }, {
+                    fromDb.postValue(true)
                     Log.i("networkerrorresult", "${it.message}")
                     searchNetworkCall.postValue(false)
                     messageString.postValue("${it.message}")
@@ -131,8 +145,10 @@ class MainViewModel(
                     .subscribeOn(schedulerProvider)
                     .subscribe({
                         Log.i("data", "$it")
+                        fromDb.postValue(false)
                         insertIntoDatabaseAfterTenRecords(it.items as MutableList<Item>)
                     }, {
+                        fromDb.postValue(false)
                         Log.i("error", "${it.message}")
                         paginatedNetworkCall.postValue(false)
                         messageString.postValue("${it.message}")

@@ -27,6 +27,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
     private lateinit var listItems: List<Item>
     private lateinit var layoutManager: LinearLayoutManager
     private var isLoading: Boolean = false
+    private var fromDb=false
     private var onItemClickListener = object : OnItemClickListener {
         override fun onClick(position: Int) {
             val intent = Intent(this@MainActivity, DetailActivity::class.java)
@@ -70,6 +71,9 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
                 }
             }
         })
+        viewModel.fromDb.observe(this, Observer {
+            fromDb=it
+        })
         viewModel.paginatedNetworkCall.observe(this, {
             it?.let { x ->
                 isLoading = x
@@ -99,7 +103,7 @@ class MainActivity : BaseActivity<MainViewModel, ActivityMainBinding>() {
                     val visibleItemCount: Int = layoutManager.childCount
                     val totalItemCount: Int = layoutManager.itemCount
                     val firstVisibleItemPosition: Int = layoutManager.findFirstVisibleItemPosition()
-                    if (!isLoading) {
+                    if (!isLoading && !fromDb) {
                         if (visibleItemCount + firstVisibleItemPosition >= totalItemCount) {
                             viewModel.getData()
                         }
