@@ -1,23 +1,30 @@
 package com.saitejajanjirala.githubclone.models
 
+
 import android.os.Parcelable
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
-@Parcelize
 @Entity(tableName = "items")
+@Parcelize
 data class Item(
-    var description: String?,
-    var forks: Int?,
+    @SerializedName("description")
+    val description: String?,
+    @SerializedName("name")
+    val name:String?,
+    @SerializedName("forks")
+    val forks: Int?,
+    @SerializedName("html_url")
+    val htmlUrl: String?,
     @PrimaryKey
-    var id:Int,
-    var html_url: String?,
-    var language: String?,
-    var languages_url: String?,
-    var name: String?,
-    var node_id: String?,
-    var open_issues_count: Int?,
-    var owner: Owner?,
-    var stargazers_count: Int?,
+    @SerializedName("id")
+    val id: Int,
+    @SerializedName("open_issues_count")
+    val openIssuesCount: Int?,
+    @SerializedName("owner")
+    val owner: Owner?,
+    @SerializedName("stargazers_count")
+    val stargazersCount: Int?,
 ):Parcelable

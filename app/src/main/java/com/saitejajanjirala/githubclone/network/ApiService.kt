@@ -1,9 +1,8 @@
 package com.saitejajanjirala.githubclone.network
 
 import com.saitejajanjirala.githubclone.models.Contributor
-import com.saitejajanjirala.githubclone.utils.Keys
 import com.saitejajanjirala.githubclone.models.SearchResult
-import io.reactivex.rxjava3.core.ObservableSource
+import com.saitejajanjirala.githubclone.utils.Keys
 import io.reactivex.rxjava3.core.Single
 import retrofit2.http.GET
 import retrofit2.http.Path

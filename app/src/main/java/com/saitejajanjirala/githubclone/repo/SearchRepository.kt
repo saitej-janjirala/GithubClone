@@ -3,7 +3,6 @@ package com.saitejajanjirala.githubclone.repo
 import com.saitejajanjirala.githubclone.db.DatabaseService
 import com.saitejajanjirala.githubclone.models.Item
 import com.saitejajanjirala.githubclone.network.ApiService
-import io.reactivex.rxjava3.disposables.CompositeDisposable
 import javax.inject.Inject
 import javax.inject.Singleton
 

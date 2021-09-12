@@ -15,5 +15,4 @@ import dagger.Module
 interface ActivityComponent {
     fun inject(activity:MainActivity)
     fun inject(activity:DetailActivity)
-
 }

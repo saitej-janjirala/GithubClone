@@ -1,7 +1,13 @@
 package com.saitejajanjirala.githubclone.models
 
+
+import com.google.gson.annotations.SerializedName
+
 data class SearchResult(
-    var incomplete_results: Boolean?,
-    var items: List<Item>?,
-    var total_count: Int?
+    @SerializedName("incomplete_results")
+    val incompleteResults: Boolean?,
+    @SerializedName("items")
+    val items: List<Item>?,
+    @SerializedName("total_count")
+    val totalCount: Int?
 )

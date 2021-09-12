@@ -26,16 +26,16 @@ class DetailActivity : BaseActivity<DetailViewModel, ActivityDetailBinding>() {
         item = (intent?.getParcelableExtra<Item>(Keys.ITEM) ?: finish()) as Item
         binding.apply {
             Glide.with(this@DetailActivity)
-                .load(item.owner!!.avatar_url)
+                .load(item.owner!!.avatarUrl)
                 .error(R.drawable.ic_baseline_error_24)
                 .into(avatar)
             repoName.text = "RepoName:- ${item.name}"
             userName.text = "UserName:- ${item.owner?.login}"
-            repoStars.text = "Stars:- ${item?.stargazers_count}"
+            repoStars.text = "Stars:- ${item?.stargazersCount}"
             repoForks.text = "Forks:- ${item.forks}"
-            repoIssues.text = "Open issues:- ${item.open_issues_count}"
+            repoIssues.text = "Open issues:- ${item.openIssuesCount}"
             description.text = "$description"
-            val url = "<u>${item.html_url}</u>"
+            val url = "<u>${item.htmlUrl}</u>"
             projectLink.text = HtmlCompat.fromHtml(url, HtmlCompat.FROM_HTML_MODE_LEGACY)
         }
         contributors = mutableListOf()
@@ -74,7 +74,7 @@ class DetailActivity : BaseActivity<DetailViewModel, ActivityDetailBinding>() {
         }
         binding.projectLink.setOnClickListener {
             val intent= Intent(this@DetailActivity,WebViewActivity::class.java)
-            intent.putExtra(Keys.URL,item.html_url)
+            intent.putExtra(Keys.URL,item.htmlUrl)
             startActivity(intent)
         }
 

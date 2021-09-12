@@ -28,14 +28,14 @@ class MainAdapter(
                 val item=getItem(position)
                 binding.apply {
                     Glide.with(context)
-                        .load(item.owner!!.avatar_url)
+                        .load(item.owner!!.avatarUrl)
                         .error(R.drawable.ic_baseline_error_24)
                         .into(avatar)
-                    repoName.text="RepoName:- ${item.name}"
+                    repoName.text="RepoName:- ${item}"
                     userName.text="UserName:- ${item.owner?.login}"
-                    repoStars.text="Stars:- ${item?.stargazers_count}"
+                    repoStars.text="Stars:- ${item?.stargazersCount}"
                     repoForks.text="Forks:- ${item.forks}"
-                    repoIssues.text="Open issues:- ${item.open_issues_count}"
+                    repoIssues.text="Open issues:- ${item.openIssuesCount}"
                 }
             }
     }

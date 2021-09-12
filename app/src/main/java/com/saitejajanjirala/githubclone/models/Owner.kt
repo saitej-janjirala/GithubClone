@@ -1,11 +1,14 @@
 package com.saitejajanjirala.githubclone.models
 
+
 import android.os.Parcelable
+import com.google.gson.annotations.SerializedName
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 data class Owner(
-    var avatar_url: String?,
-    var login: String?,
-    var node_id: String?,
+    @SerializedName("avatar_url")
+    val avatarUrl: String?,
+    @SerializedName("login")
+    val login: String?,
 ):Parcelable

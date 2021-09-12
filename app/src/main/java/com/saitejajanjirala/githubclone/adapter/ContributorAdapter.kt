@@ -9,9 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.saitejajanjirala.githubclone.R
 import com.saitejajanjirala.githubclone.databinding.ContributorItemBinding
-import com.saitejajanjirala.githubclone.databinding.SearchItemBinding
 import com.saitejajanjirala.githubclone.models.Contributor
-import com.saitejajanjirala.githubclone.models.Item
 
 class ContributorAdapter(private val context: Context) : ListAdapter<Contributor, ContributorAdapter.ContributorViewHolder>(DataItemCallback()){
     inner class ContributorViewHolder(val binding: ContributorItemBinding) : RecyclerView.ViewHolder(binding.root){

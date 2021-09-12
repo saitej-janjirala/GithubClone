@@ -53,8 +53,6 @@ abstract class BaseActivity<VM : BaseViewModel,VB:ViewBinding> : AppCompatActivi
             .activityModule(ActivityModule(this))
             .build()
 
-
-
     @LayoutRes
     protected abstract fun provideLayoutId(): Int
 

@@ -9,14 +9,14 @@ class MyTypeConverter {
     @TypeConverter
     fun ownerToStringConverter(owner: Owner):String{
         return owner.run {
-            return@run "$avatar_url,$login,$node_id"
+            return@run "$avatarUrl,$login"
         }
     }
 
     @TypeConverter
     fun stringToOwnerConverter(string: String):Owner{
        val arr=string.split(",")
-        return Owner(arr[0],arr[1],arr[2])
+        return Owner(arr[0],arr[1])
     }
 
 
